@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Post;
+use App\Http\Resources\Post as PostResource;
 
 class PostController extends Controller
 {
@@ -13,17 +16,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-    }
+        //Get posts
+        $posts = Post::paginate(15);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        //Return collection of posts as a resource
+        return PostResource::collection($posts);
     }
 
     /**
@@ -34,7 +31,23 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validate post
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',            
+        ]);
+
+        // Create Post
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->user_id = $request->input('user_id');        
+        
+        if($post->save()) {
+            return new PostResource($post);    
+        }else{
+            return "error";
+        }
     }
 
     /**
@@ -45,18 +58,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        //Get post
+        $post = Post::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        //Return single post as a resource
+        return new PostResource($post);
     }
 
     /**
@@ -68,7 +74,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+         // Update Post
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+       
+        if ($post->save()){
+            return new PostResource($post);                           
+        }
     }
 
     /**
@@ -79,6 +97,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Get post
+        $post = Post::findorFail($id);
+
+        //Delete post
+        if($post->delete()){
+            return new PostResource($post);            
+        }
     }
 }

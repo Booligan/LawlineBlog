@@ -1,23 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a className="navbar-brand" href="/">Lawline Blog</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <Link to="/" exact className="navbar-brand"><img src="https://cdn.furthered.com/assets/ui/images/logos/lawline-rounded-light-horizontal-16-11-3.svg" width="100" />Blog</Link>        
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-target" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarsExample03">
-                <ul className="navbar-nav mr-auto">
+            <div className="collapse navbar-collapse" id="collapse-target">
+                <ul className="navbar-nav ml-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
+                        <Link to="/posts" exact className="nav-link" >Posts</Link>
+                    </li>                        
+                    <li className="nav-item active">
+                        <Link to="/posts/new" exact className="nav-link" >Create A Post</Link>
+                    </li> 
                 </ul>
             </div>
         </nav>

@@ -14,9 +14,6 @@ const Navbar = () => {
                     <li className="nav-item active">
                         <Link to="/posts" exact className="nav-link" >Posts</Link>
                     </li>                        
-                    <li className="nav-item active">
-                        <Link to="/posts/new" exact className="nav-link" >Create A Post</Link>
-                    </li> 
                 </ul>
             </div>
         </nav>

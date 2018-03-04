@@ -13,7 +13,11 @@ class Main extends Component {
                     <Navbar />
                     <Switch>
                         <Route exact path = '/' component = {Posts} />
-                        <Route exact path = '/about' component = {About} />              
+                        <Route exact path = '/about' component = {About} />   
+                        <Route exact path='/CLE' component={Posts} />              
+                        <Route exact path='/Lawline_News' component={Posts} />              
+                        <Route exact path='/Hot_Topics' component={Posts} />              
+                        <Route exact path='/Legal_Marketing' component={Posts} />              
                         {/* <Route exact path = '/players/new' component = {PlayerForm} />
                         <Route exact path = '/players/:id' component = {PlayerShow} /> */}
                     </Switch>

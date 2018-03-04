@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { getPosts } from '../actions/posts';
 import Splash from '../components/Splash';
 import PostCard from '../components/PostCard';
+import TopicLinks from '../containers/TopicLinks';
+
+
+
 
 class Posts extends Component {
 
@@ -18,6 +22,7 @@ class Posts extends Component {
                 <div className="container">
                     {this.props.posts.map(post => <PostCard key={post.id} post={post} />)}
                 </div>
+                <TopicLinks />
             </div>
         )
     }

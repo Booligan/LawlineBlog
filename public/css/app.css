@@ -10020,7 +10020,8 @@ a.text-dark:focus {
   border-color: #F0B376;
 }
 
-.splash {
+.splash,
+.aboutSplash {
   position: relative;
   width: 100%;
   height: 60vh;
@@ -10038,11 +10039,24 @@ a.text-dark:focus {
   text-transform: uppercase;
 }
 
+.aboutSplash {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(45, 132, 224, 0.507)), to(rgba(45, 96, 172, 0.541))), url("https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+  background-image: linear-gradient(0deg, rgba(45, 132, 224, 0.507), rgba(45, 96, 172, 0.541)), url("https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+}
+
 .top-header {
   font: 600 55px/1.2em 'Josefin Sans',sans-serif !important;
 }
 
 .bottom-header {
   font-size: 40px;
+}
+
+.about-header {
+  font-size: 50px;
+}
+
+.about-summary {
+  font-size: 30px;
 }
 

@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('{url}', function () {
     return view('index');
-});
+})->where('url', '(.+)?');
+
+

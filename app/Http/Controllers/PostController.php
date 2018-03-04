@@ -34,14 +34,17 @@ class PostController extends Controller
         //Validate post
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required',            
+            'body' => 'required', 
+            'category' => 'required',            
+            'author' => 'required',                                   
         ]);
 
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->user_id = $request->input('user_id');        
+        $post->category = $request->input('category');
+        $post->author = $request->input('author');     
         
         if($post->save()) {
             return new PostResource($post);    
@@ -76,13 +79,17 @@ class PostController extends Controller
     {
          $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required', 
+            'category' => 'required',            
+            'author' => 'required',
         ]);
 
          // Update Post
         $post = Post::find($id);
-        $post->title = $request->input('title');
+         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->category = $request->input('category');
+        $post->author = $request->input('author');   
        
         if ($post->save()){
             return new PostResource($post);                           

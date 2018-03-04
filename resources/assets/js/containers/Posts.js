@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/posts';
-import PostCard from '../components/PostCard'
+import Splash from '../components/Splash';
+import PostCard from '../components/PostCard';
 
 class Posts extends Component {
 
@@ -12,9 +13,11 @@ class Posts extends Component {
 
     render() {
         return (
-            <div className="container">
-              
-                {this.props.posts.map(post => <PostCard key={post.id} post={post} />)}
+            <div>
+                <Splash />            
+                <div className="container">
+                    {this.props.posts.map(post => <PostCard key={post.id} post={post} />)}
+                </div>
             </div>
         )
     }

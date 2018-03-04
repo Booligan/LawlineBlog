@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(https://fonts.googleapis.com/css?family=Karma:600);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -9994,9 +9994,55 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.navbar {
+  background-color: #272727 !important;
+}
+
+.PostCard {
+  float: left;
+  margin: 1.5%;
+  background: whitesmoke;
+  width: 50%;
+  height: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubis-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubis-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-info {
+  background-color: #000000;
+  border-color: #4F4E4D;
+}
+
+.btn-info:hover {
+  background-color: #E18325;
+  border-color: #F0B376;
+}
+
+.splash {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background-image: url("https://images.pexels.com/photos/374631/pexels-photo-374631.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.splash-text {
+  position: absolute;
+  top: 33%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.top-header {
+  font: 600 55px/1.2em 'Josefin Sans',sans-serif !important;
+}
+
+.bottom-header {
+  font-size: 40px;
 }
 

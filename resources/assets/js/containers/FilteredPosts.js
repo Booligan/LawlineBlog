@@ -8,9 +8,6 @@ import TopicLinks from '../containers/TopicLinks';
 
 class FilteredPosts extends Component {
 
-    componentWillMount(){
-    }
-
     componentDidMount(){
         let catID = parseInt(this.props.match.params.catID);
         this.props.getPosts("/posts")                

@@ -10072,3 +10072,10 @@ a.text-dark:focus {
   margin: 10px;
 }
 
+.postcard-body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  width: 100%;
+}
+

@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         //Get posts
-        $posts = Post::paginate(15);
+        $posts = Post::orderBy('created_at','desc')->get();
 
         //Return collection of posts as a resource
         return PostResource::collection($posts);
@@ -35,15 +35,17 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required', 
-            'category' => 'required',            
-            'author' => 'required',                                   
+            'category_id' => 'required',            
+            'author' => 'required',
+            'img_url' => 'required',                                                                                  
         ]);
 
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->category = $request->input('category');
+        $post->category_id = $request->input('category_id');
+        $post->img_url = $request->input('img_url');        
         $post->author = $request->input('author');     
         
         if($post->save()) {

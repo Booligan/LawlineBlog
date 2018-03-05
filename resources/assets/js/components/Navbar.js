@@ -12,6 +12,9 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="collapse-target">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item active">
+                        <Link to="/posts/new" exact className="nav-link" >Create A Post</Link>
+                    </li>  
+                    <li className="nav-item active">
                         <Link to="/about" exact className="nav-link" >About</Link>
                     </li>
                     <li className="nav-item active">

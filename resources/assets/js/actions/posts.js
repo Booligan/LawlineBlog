@@ -1,4 +1,5 @@
 import { debug } from "util";
+import { resetPostForm } from './postForm';
 
 const API_URL = "http://lawlineblog.test/api";
 
@@ -18,4 +19,33 @@ const setPosts = posts => {
     }
 }
 
+export const createPost = (post, routerHistory) => {
+    return dispatch => {
+        return fetch(`${API_URL}/posts`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(post)
+        })
+            .then(handleErrors)
+            .then(response => response.json())
+            .then(post => {
+                dispatch(postPostForm())
+                routerHistory.replace(`/posts`)
+            })
+            .catch(error => {
+                dispatch({ type: 'ERROR' })
+                routerHistory.replace(`/posts/new`)
+            })
+    }
+}
+
+
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
 

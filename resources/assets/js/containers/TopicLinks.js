@@ -2,23 +2,44 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getCategories } from '../actions/categories';
 
 class TopicLinks extends Component {
- 
-    handleOnClick = (event) => {
-       debugger;
+
+    componentDidMount() {
+        this.props.getCategories()
+    }
+
+    handleOnClick = () => {
+        this.props.getPosts("/posts")                        
     }
 
     render(){
-        return (<div className="text-center mt-5">
-            <h7>---------- Topics ----------</h7>
-            <Link onClick={(e) => this.handleOnClick(e)} to="/posts/CLE" exact className="nav-link" >CLE</Link>
-            <Link to="/posts/Lawline_News" exact className="nav-link" >Lawline News</Link>
-            <Link to="/posts/Hot_Topics" exact className="nav-link" >Hot Topics</Link>
-            <Link to="/posts/Legal_Marketing" exact className="nav-link" >Legal Marketing</Link>
-        </div>
+        return (
+            <div className="text-center ml-5 mt-5 topic-links">
+                <h6 id="topic-header">---------- Topics ----------</h6>
+                
+                {this.props.categories.map((category,index,array) =>
+                        <Link onClick={() =>{this.handleOnClick()}}to={"/categories/" + category.id} exact key={category.id} className="topic-links">
+                            <br />{category.name}<br />
+                        </Link>
+                    )
+                }
+            </div>            
         )
     }
 }
 
-export default TopicLinks;
+const mapStateToProps = (state) => {
+    return ({
+        categories: state.categories,
+    })
+}
+
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({ 
+        getCategories: getCategories,                      
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(TopicLinks);

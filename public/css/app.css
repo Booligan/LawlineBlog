@@ -10060,3 +10060,11 @@ a.text-dark:focus {
   font-size: 30px;
 }
 
+#topic-header {
+  color: #9b9997;
+  display: inline-block;
+  font-style: italic;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+

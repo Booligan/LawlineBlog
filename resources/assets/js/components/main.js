@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import About from '../components/About'
 import Posts from '../containers/Posts'
+import FilteredPosts from '../containers/FilteredPosts'
+
 
 
 class Main extends Component {
@@ -14,10 +16,7 @@ class Main extends Component {
                     <Switch>
                         <Route exact path = '/' component = {Posts} />
                         <Route exact path = '/about' component = {About} />   
-                        <Route exact path='/CLE' component={Posts} />              
-                        <Route exact path='/Lawline_News' component={Posts} />              
-                        <Route exact path='/Hot_Topics' component={Posts} />              
-                        <Route exact path='/Legal_Marketing' component={Posts} />              
+                        <Route exact path='/categories/:catID' component={FilteredPosts} />                           
                         {/* <Route exact path = '/players/new' component = {PlayerForm} />
                         <Route exact path = '/players/:id' component = {PlayerShow} /> */}
                     </Switch>

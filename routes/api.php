@@ -31,3 +31,9 @@ Route::put('posts/{id}', 'PostController@update');
 
 // Delete post
 Route::delete('posts/{id}', 'PostController@destroy');
+
+// List categories
+Route::get('categories', 'CategoriesController@index');
+
+// List categories posts
+Route::get('categories/{id}', 'CategoriesController@posts');

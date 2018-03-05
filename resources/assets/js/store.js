@@ -1,8 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import posts from './reducers/postsReducer'
+import categories from './reducers/categoriesReducer'
 
-const reducers = combineReducers({posts})
+
+const reducers = combineReducers({ posts, categories})
 const middleware = [thunk];
 
 export default createStore(

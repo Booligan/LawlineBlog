@@ -6,18 +6,24 @@ import Splash from '../components/Splash';
 import PostCard from '../components/PostCard';
 import TopicLinks from '../containers/TopicLinks';
 
-class Posts extends Component {
+class FilteredPosts extends Component {
 
-    componentDidMount() {
-        this.props.getPosts("/posts")
+    componentWillMount(){
+    }
+
+    componentDidMount(){
+        let catID = parseInt(this.props.match.params.catID);
+        this.props.getPosts("/posts")                
+        this.props.getPosts("/categories/" + catID)
+        this.props.getPosts("/categories/" + catID)
     }
 
     render() {
         return (
             <div>
-                <Splash />            
+                <Splash />
                 <div className="container">
-                    {this.props.posts.map(post => <PostCard key={post.id} post={post} />)}
+                    {this.props.posts.map(post => <PostCard key={post.id} post={post} />)}                
                 </div>
                 <TopicLinks />
             </div>
@@ -32,7 +38,7 @@ const mapStateToProps = (state) => {
 }
 
 const matchDispatchToProps = (dispatch) => {
-    return bindActionCreators({getPosts: getPosts}, dispatch)
+    return bindActionCreators({ getPosts: getPosts }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Posts);
+export default connect(mapStateToProps, matchDispatchToProps)(FilteredPosts);

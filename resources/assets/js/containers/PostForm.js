@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Splash from '../components/Splash';
 import { updatePostFormData } from '../actions/postForm';
 import { createPost } from '../actions/posts';
 
@@ -24,10 +25,11 @@ class PostForm extends Component {
         const { title, body, author, img_url, category_id } = this.props.postFormData;
         return (
             <div>
-                <h3 className="formHeader">Post Form</h3>
+                <Splash />                
+                <h3 className="formHeader text-center">Post Form</h3>
                 {this.props.errors === true ? <FormError /> : null}
                 <hr />
-                <form onSubmit={this.handleOnSubmit}>
+                <form className="text-center" onSubmit={this.handleOnSubmit}>
                     <div>
                         <label htmlFor="title">Title<span className="fieldRequired"> *</span>:</label>
                         <input type='text'

@@ -88,6 +88,7 @@
   .postcard-body{
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     -o-text-overflow: ellipsis;
     width: 100%;
   }

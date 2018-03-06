@@ -2089,7 +2089,7 @@ var TopicLinks = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
                         { onClick: function onClick() {
                                 _this2.handleOnClick();
-                            }, to: "/categories/" + category.id, exact: true, key: category.id, className: 'topic-links' },
+                            }, to: "/categories/" + category.id, exact: 'true', key: category.id, className: 'topic-links' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                         category.name,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null)
@@ -16849,7 +16849,7 @@ var PostCard = function PostCard(_ref) {
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { to: '/posts/' + post.id, exact: true, className: 'btn btn-info ml-2 mb-2' },
+            { to: '/posts/' + post.id, exact: 'true', className: 'btn btn-info ml-2 mb-2' },
             'Read More'
         )
     );
@@ -59798,7 +59798,7 @@ var Navbar = function Navbar() {
         { className: 'navbar navbar-expand-sm navbar-dark bg-dark' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { to: '/', exact: true, className: 'navbar-brand' },
+            { to: '/', exact: 'true', className: 'navbar-brand' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://cdn.furthered.com/assets/ui/images/logos/lawline-rounded-light-horizontal-16-11-3.svg', width: '100' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -59817,25 +59817,25 @@ var Navbar = function Navbar() {
                     { className: 'nav-item active' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                        { to: '/posts/new', exact: true, className: 'nav-link' },
+                        { to: '/posts/new', exact: 'true', className: 'nav-link' },
                         'Create A Post'
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
-                    { className: 'nav-item active' },
+                    { className: 'nav-item' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                        { to: '/', exact: true, className: 'nav-link' },
+                        { to: '/', exact: 'true', className: 'nav-link' },
                         'Posts'
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
-                    { className: 'nav-item active' },
+                    { className: 'nav-item' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                        { to: '/about', exact: true, className: 'nav-link' },
+                        { to: '/about', exact: 'true', className: 'nav-link' },
                         'About'
                     )
                 )

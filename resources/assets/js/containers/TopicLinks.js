@@ -20,7 +20,7 @@ class TopicLinks extends Component {
                 <h6 id="topic-header">---------- Topics ----------</h6>
                 
                 {this.props.categories.map((category,index,array) =>
-                        <Link onClick={() =>{this.handleOnClick()}}to={"/categories/" + category.id} exact key={category.id} className="topic-links">
+                        <Link onClick={() =>{this.handleOnClick()}}to={"/categories/" + category.id} exact="true" key={category.id} className="topic-links">
                             <br />{category.name}<br />
                         </Link>
                     )

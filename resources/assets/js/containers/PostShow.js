@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Splash from '../components/Splash';
 import TopicLinks from '../containers/TopicLinks';
-
+import { getPost } from '../actions/posts';
 
 class PostShow extends Component {
+
+    componentDidMount(){
+        let postID = this.props.match.params.id
+        this.props.getPost(postID);        
+    }
  
     render(){
         const { post } = this.props;
@@ -25,13 +31,14 @@ class PostShow extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const post = state.posts.find(post => String(post.id) === ownProps.match.params.id)
-    if (post) {
-        return { post: post }
-    } else {
-        return { post: {} }
-    }
+const mapStateToProps = (state) => {
+    return ({
+        post: state.post
+    })
 }
 
-export default connect(mapStateToProps)(PostShow);
+const matchDispatchToProps = (dispatch) => {
+    return bindActionCreators({ getPost: getPost }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(PostShow);

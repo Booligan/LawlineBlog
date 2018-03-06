@@ -28,7 +28,6 @@ export const createPost = (post, routerHistory) => {
             },
             body: JSON.stringify(post)
         })
-            .then(handleErrors)
             .then(response => response.json())
             .then(post => {
                 dispatch(postPostForm())
@@ -41,11 +40,19 @@ export const createPost = (post, routerHistory) => {
     }
 }
 
-
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
+export const getPost = (postID) => {
+    return dispatch => {
+        return fetch(`${API_URL}` + `/posts/${postID}`)
+            .then(response => response.json())
+            .then(post => dispatch(setPost(post.data)))
+            .catch(error => console.log(error))
     }
-    return response;
+}
+
+const setPost = post => {
+    return {
+        type: 'GET_POST_SUCCESS',
+        payload: post
+    }
 }
 

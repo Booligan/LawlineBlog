@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getPosts } from '../actions/posts';
+import { getFilteredPosts } from '../actions/posts';
 import Splash from '../components/Splash';
 import PostCard from '../components/PostCard';
 import TopicLinks from '../containers/TopicLinks';
@@ -9,10 +9,8 @@ import TopicLinks from '../containers/TopicLinks';
 class FilteredPosts extends Component {
 
     componentDidMount(){
-        let catID = parseInt(this.props.match.params.catID);
-        this.props.getPosts("/posts")                
-        this.props.getPosts("/categories/" + catID)
-        this.props.getPosts("/categories/" + catID)
+        let catID = this.props.match.params.catID;
+        this.props.getFilteredPosts(catID);            
     }
 
     render() {
@@ -30,12 +28,12 @@ class FilteredPosts extends Component {
 
 const mapStateToProps = (state) => {
     return ({
-        posts: state.posts
+        posts: state.filteredPosts
     })
 }
 
 const matchDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getPosts: getPosts }, dispatch)
+    return bindActionCreators({ getFilteredPosts: getFilteredPosts }, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(FilteredPosts);

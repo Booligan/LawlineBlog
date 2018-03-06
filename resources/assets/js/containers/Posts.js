@@ -9,7 +9,7 @@ import TopicLinks from '../containers/TopicLinks';
 class Posts extends Component {
 
     componentDidMount() {
-        this.props.getPosts("/posts")
+        this.props.getPosts();
     }
 
     render() {

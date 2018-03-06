@@ -3,9 +3,9 @@ import { resetPostForm } from './postForm';
 
 const API_URL = "http://lawlineblog.test/api";
 
-export const getPosts = (endpoint) => {
+export const getPosts = () => {
     return dispatch => {
-        return fetch(`${API_URL}` + endpoint)
+        return fetch(`${API_URL}` + "/posts")
             .then(response => response.json())
             .then(posts => dispatch(setPosts(posts.data)))
             .catch(error => console.log(error))
@@ -53,6 +53,22 @@ const setPost = post => {
     return {
         type: 'GET_POST_SUCCESS',
         payload: post
+    }
+}
+
+export const getFilteredPosts = (catID) => {
+    return dispatch => {
+        return fetch(`${API_URL}` + `/categories/${catID}`)
+            .then(response => response.json())
+            .then(posts => dispatch(setFilteredPosts(posts.data)))
+            .catch(error => console.log(error))
+    }
+}
+
+const setFilteredPosts = posts => {
+    return {
+        type: 'GET_FILTERED_POSTS_SUCCESS',
+        payload: posts
     }
 }
 

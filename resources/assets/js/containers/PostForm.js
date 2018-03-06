@@ -26,47 +26,47 @@ class PostForm extends Component {
         return (
             <div>
                 <Splash />                
-                <h3 className="formHeader text-center">Post Form</h3>
+                <h1 className="formHeader text-center mt-5 mb-5">Post Form</h1>
                 {this.props.errors === true ? <FormError /> : null}
                 <hr />
                 <form className="text-center" onSubmit={this.handleOnSubmit}>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor="title">Title<span className="fieldRequired"> *</span>:</label>
-                        <input type='text'
+                        <input type='text' class="form-control"
                             onChange={this.handleOnChange}
                             name='title'
                             value={title} />
                     </div>
-                    <div>
+                    <div class="form-group">
+                        <label htmlFor="author">Author<span className="fieldRequired"> *</span>:</label>
+                        <input type='text' class="form-control"
+                            onChange={this.handleOnChange}
+                            name='author'
+                            value={author} />
+                    </div>
+                    <div class="form-group">
+                        <label htmlFor="img_url">Image URL<span className="fieldRequired"> *</span>:</label>
+                        <input type='text' class="form-control"
+                            onChange={this.handleOnChange}
+                            name='img_url'
+                            value={img_url} />
+                    </div>
+                    <div class="form-group">
                         <label htmlFor="body">Body<span className="fieldRequired"> *</span>:</label>
-                        <textarea type='textarea'
+                        <textarea type='textarea' class="form-control"
                             onChange={this.handleOnChange}
                             name='body'
                             value={body} />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor="category_id">Category<span className="fieldRequired"> *</span>:</label>
-                        <select onChange={this.handleOnChange} name='category_id' >
+                        <select onChange={this.handleOnChange} name='category_id' class="form-control" >
                             <option value="1">CLE</option>
                             <option value="2">Lawline News</option>
                             <option value="3">Hot Topics</option>
                             <option value="4">Legal Marketing</option>
                         </select>
                     </div>                    
-                    <div>
-                        <label htmlFor="author">Author<span className="fieldRequired"> *</span>:</label>
-                        <input type='text'
-                            onChange={this.handleOnChange}
-                            name='author'
-                            value={author} />
-                    </div>
-                    <div>
-                        <label htmlFor="img_url">Image URL<span className="fieldRequired"> *</span>:</label>
-                        <input type='text'
-                            onChange={this.handleOnChange}
-                            name='img_url'
-                            value={img_url} />
-                    </div>
                     <input className="btn btn-primary" type="submit" value="Submit" />
                 </form>
             </div>

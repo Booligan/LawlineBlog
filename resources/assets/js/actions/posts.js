@@ -30,12 +30,8 @@ export const createPost = (post, routerHistory) => {
         })
             .then(response => response.json())
             .then(post => {
-                dispatch(postPostForm())
-                routerHistory.replace(`/posts`)
-            })
-            .catch(error => {
-                dispatch({ type: 'ERROR' })
-                routerHistory.replace(`/posts/new`)
+                dispatch(resetPostForm())
+                routerHistory.replace("/")
             })
     }
 }

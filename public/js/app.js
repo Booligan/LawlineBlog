@@ -1144,11 +1144,8 @@ var createPost = function createPost(post, routerHistory) {
         }).then(function (response) {
             return response.json();
         }).then(function (post) {
-            dispatch(postPostForm());
-            routerHistory.replace("/posts");
-        }).catch(function (error) {
-            dispatch({ type: 'ERROR' });
-            routerHistory.replace("/posts/new");
+            dispatch(Object(__WEBPACK_IMPORTED_MODULE_1__postForm__["a" /* resetPostForm */])());
+            routerHistory.replace("/");
         });
     };
 };
@@ -16799,8 +16796,8 @@ function verifyPlainObject(value, displayName, methodName) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updatePostFormData; });
-/* unused harmony export resetPostForm */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updatePostFormData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return resetPostForm; });
 var updatePostFormData = function updatePostFormData(postFormData) {
     return {
         type: 'UPDATED_POST',
@@ -16865,7 +16862,7 @@ var PostCard = function PostCard(_ref) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(58);
-module.exports = __webpack_require__(164);
+module.exports = __webpack_require__(165);
 
 
 /***/ }),
@@ -61937,6 +61934,9 @@ var PostForm = function (_Component) {
             createPost(postFormData, history);
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
+    // componentDidMount(){
+    //     debugger
+    // }
 
     _createClass(PostForm, [{
         key: 'render',
@@ -61964,7 +61964,7 @@ var PostForm = function (_Component) {
                     { className: 'text-center', onSubmit: this.handleOnSubmit },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { 'class': 'form-group' },
+                        { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
                             { htmlFor: 'title' },
@@ -61976,14 +61976,14 @@ var PostForm = function (_Component) {
                             ),
                             ':'
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control',
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control',
                             onChange: this.handleOnChange,
                             name: 'title',
                             value: title })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { 'class': 'form-group' },
+                        { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
                             { htmlFor: 'author' },
@@ -61995,14 +61995,14 @@ var PostForm = function (_Component) {
                             ),
                             ':'
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control',
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control',
                             onChange: this.handleOnChange,
                             name: 'author',
                             value: author })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { 'class': 'form-group' },
+                        { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
                             { htmlFor: 'img_url' },
@@ -62014,14 +62014,14 @@ var PostForm = function (_Component) {
                             ),
                             ':'
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', 'class': 'form-control',
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control',
                             onChange: this.handleOnChange,
                             name: 'img_url',
                             value: img_url })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { 'class': 'form-group' },
+                        { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
                             { htmlFor: 'body' },
@@ -62033,14 +62033,14 @@ var PostForm = function (_Component) {
                             ),
                             ':'
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'textarea', 'class': 'form-control',
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { type: 'textarea', className: 'form-control',
                             onChange: this.handleOnChange,
                             name: 'body',
                             value: body })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { 'class': 'form-group' },
+                        { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
                             { htmlFor: 'category_id' },
@@ -62054,7 +62054,7 @@ var PostForm = function (_Component) {
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'select',
-                            { onChange: this.handleOnChange, name: 'category_id', 'class': 'form-control' },
+                            { onChange: this.handleOnChange, name: 'category_id', className: 'form-control', value: category_id },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'option',
                                 { value: '1' },
@@ -62093,7 +62093,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var matchDispatchToProps = function matchDispatchToProps(dispatch) {
-    return Object(__WEBPACK_IMPORTED_MODULE_2_redux__["b" /* bindActionCreators */])({ updatePostFormData: __WEBPACK_IMPORTED_MODULE_4__actions_postForm__["a" /* updatePostFormData */],
+    return Object(__WEBPACK_IMPORTED_MODULE_2_redux__["b" /* bindActionCreators */])({ updatePostFormData: __WEBPACK_IMPORTED_MODULE_4__actions_postForm__["b" /* updatePostFormData */],
         createPost: __WEBPACK_IMPORTED_MODULE_5__actions_posts__["a" /* createPost */] }, dispatch);
 };
 
@@ -62189,7 +62189,7 @@ var matchDispatchToProps = function matchDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducers_postReducer__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducers_postFormData__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reducers_categoriesReducer__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reducers_filteredPosts__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reducers_filteredPosts__ = __webpack_require__(164);
 
 
 
@@ -62274,10 +62274,10 @@ exports['default'] = thunk;
 
 "use strict";
 var initialState = {
-    title: null,
-    body: null,
-    author: null,
-    img_url: null,
+    title: "",
+    body: "",
+    author: "",
+    img_url: "",
     category_id: "1"
 };
 
@@ -62317,16 +62317,6 @@ var initialState = {
 
 /***/ }),
 /* 164 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62342,6 +62332,12 @@ var initialState = {
             return state;
     }
 });
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -1,8 +1,8 @@
 const initialState = {
-    title: null,
-    body: null,
-    author: null,
-    img_url: null,
+    title: "",
+    body: "",
+    author: "",
+    img_url: "",
     category_id: "1"
 }
 
